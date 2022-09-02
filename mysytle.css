@@ -3,20 +3,33 @@
 *{
     margin: 0;
     padding: 0;
+    
+
+    
+    
+
 }
 
 body {
     font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #333;   
+    background-color: #fff;
+    font-size: large;
+
+
 }
 
 body{
     height: 30vh;
+    width: 100vw;
+    
   
     
 }
 
 header{
-    background-image: url(img/header-image.webp);  
+    background-image: url(img/header-image.webp);
     background-repeat: no-repeat;
     height: 35vh;
 
