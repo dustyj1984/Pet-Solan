@@ -3,38 +3,53 @@
 *{
     margin: 0;
     padding: 0;
-    
+   
 
-    
-    
 
 }
 
 body {
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    color: #333;   
-    background-color: #fff;
-    font-size: large;
+    width: 100%;
+ 
+
+
 
 
 }
 
-body{
-    height: 30vh;
-    width: 100vw;
-    
-  
-    
-}
+
 
 header{
-    background-image: url(img/header-image.webp);
-    background-repeat: no-repeat;
+    background-image: url(img/header-image.jpg);
+    margin: 5px;
+    padding: 25px;    
     height: 35vh;
+}
+main {
+    background-image: url(img/main-background.jpg);
+    height: 50vh;
+}
+header h1 {
+    text-align: center;}
+
+.CTA{
+    text-align: center;
+    border-radius: 3px solid black;
+    padding: 10px;
+    text-transform: uppercase;
 
 }
+  
+    
 
-#info {
-    margin-top: 100px;}
+
+
+
+
+
+
+
+
+
 

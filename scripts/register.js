@@ -11,12 +11,15 @@ let petSalon ={
 }
 
 //constructor
-function Pet(name,age,gender,breed,service){
+function Pet(name,age,gender,breed,service,ownerName,ownerPhone,ownerEmail){
     this.name = name;
     this.age = age;
     this.gender = gender;
     this.breed = breed;
-    this.service = service;\
+    this.service = service;
+    this.ownerName= ownerName;
+    this.ownerPhone= ownerPhone;
+    this.ownerEmail= ownerEmail;
 
 
     //owners
@@ -27,19 +30,22 @@ document.getElementById("info").innerHTML =`<p>${petSalon.companyName} is locate
 }
 
 // get the values from the inputs
-let nameInput = document.getElementById("petName");
+let nameInput = document.getElementById("petName")
 let ageInput = document.getElementById("petAge");
 let genderInput = document.getElementById("petGender");
 let breedInput = document.getElementById("petBreed");
 let serviceSelect = document.getElementById("petService");
 //owners
+let ownerNameInput = document.getElementById("petOwner");
+let ownerPhoneInput = document.getElementById("ownerPhone");
+let ownerEmailInput = document.getElementById("ownerEmail");
 
 
 function register(){
 
-    console.log(nameInput.value,ageInput.value,genderInput.value, breedInput.value,serviceSelect.value);
+    console.log(nameInput.value,ageInput.value,genderInput.value, breedInput.value,serviceSelect.value,ownerNameInput.value,ownerPhoneInput.value,ownerEmailInput.value);
     
-    let thePet = new Pet(nameInput.value,ageInput.value,genderInput.value,breedInput.value,serviceSelect.value);
+    let thePet = new Pet(nameInput.value,ageInput.value,genderInput.value,breedInput.value,serviceSelect.value,ownerNameInput.value,ownerPhoneInput.value,ownerEmailInput.value);
     petSalon.pets.push(thePet);
     console.log(petSalon.pets);
     clearInputs();
@@ -51,6 +57,9 @@ ageInput.value ="";
 genderInput.value ="";
 breedInput.value ="";
 serviceSelect.value ="";
+ownerNameInput.value ="";
+ownerPhoneInput.value ="";
+ownerEmailInput.value ="";
     
     
 
