@@ -11,6 +11,7 @@ let petSalon ={
 }
 
 //constructor
+let c=0;
 function Pet(name,age,gender,breed,service,ownerName,ownerPhone,ownerEmail){
     this.name = name;
     this.age = age;
@@ -20,13 +21,13 @@ function Pet(name,age,gender,breed,service,ownerName,ownerPhone,ownerEmail){
     this.ownerName= ownerName;
     this.ownerPhone= ownerPhone;
     this.ownerEmail= ownerEmail;
+    this.id=c++;
 
 
-    //owners
-
+    
 }
 function displaySalonInfo(){
-document.getElementById("info").innerHTML =`<p>${petSalon.companyName} is located ${petSalon.address.city} ${petSalon.address.state}</p>`;
+document.getElementsByClassName("info").innerHTML =`<p>${petSalon.companyName} is located ${petSalon.address.city} ${petSalon.address.state}</p>`;
 }
 
 // get the values from the inputs
@@ -40,17 +41,30 @@ let ownerNameInput = document.getElementById("petOwner");
 let ownerPhoneInput = document.getElementById("ownerPhone");
 let ownerEmailInput = document.getElementById("ownerEmail");
 
+function isValid(aPet){ 
+    let valid=true;
+
+    if(aPet.name == "" || aPet.service=="" || aPet.ownerPhone==""){
+        valid=false;
+    }
+    return valid;
+}
 
 function register(){
 
     console.log(nameInput.value,ageInput.value,genderInput.value, breedInput.value,serviceSelect.value,ownerNameInput.value,ownerPhoneInput.value,ownerEmailInput.value);
     
     let thePet = new Pet(nameInput.value,ageInput.value,genderInput.value,breedInput.value,serviceSelect.value,ownerNameInput.value,ownerPhoneInput.value,ownerEmailInput.value);
-    petSalon.pets.push(thePet);
-    console.log(petSalon.pets);
-    clearInputs();
-
+    
+    if(isValid(thePet)){
+        petSalon.pets.push(thePet);
+        clearInputs();
+        displayPetTables();
+    }else{
+        alert("Please add the required information.");
+    }
 }
+
 function clearInputs(){
 nameInput.value ="";
 ageInput.value ="";
@@ -60,33 +74,46 @@ serviceSelect.value ="";
 ownerNameInput.value ="";
 ownerPhoneInput.value ="";
 ownerEmailInput.value ="";
-    
-    
 
 }
 
+function deletePet(petID){
+    let removeIndex;
+    console.log("deleteing pet " + id);
+    for(let i=0; i<petSalon.pets.length; i++){
+        let pet = petSalon.pets[i];
+        if(pet.id == petID){
+            removeIndex = i;
+        }
+    }
+    petSalon.pets.splice(removeIndex, 1);
+    document.getElementById(id).remove();
+}
+
+function search(){
+    let searchString = document.getElementById("petSearch").value;
+    let searchIndex;
+    for(let i=0; i<petSalon.pets.length; i++){
+        let pet = petSalon.pets[i];
+        if(pet.name == searchString){
+            searchIndex = i;
+            console.log("searching...");
+        }
+
+    }
+}
 function init(){
     console.log("Registering");
     displaySalonInfo();
-    let scooby = new Pet("Scooby",60,"Male","Dane","Grooming","Shaggy","123-456-1234");
-    let Simba = new Pet("Simba",20,"Female","Lion","Bath","Dustin","123-123-1234");         
-    petSalon.pets.push(scooby,Simba);
+   
+
+    displayPetTables(); 
     
 
 }
 
 window.onload =init;
 
-
-
-
-
-
-
-
-
-
-displaySalonInfo();
 
 
 
