@@ -30,8 +30,9 @@ function displaySalonInfo(){
 document.getElementsByClassName("info").innerHTML =`<p>${petSalon.companyName} is located ${petSalon.address.city} ${petSalon.address.state}</p>`;
 }
 
+
 // get the values from the inputs
-let nameInput = document.getElementById("petName")
+let nameInput = document.getElementById("petName");
 let ageInput = document.getElementById("petAge");
 let genderInput = document.getElementById("petGender");
 let breedInput = document.getElementById("petBreed");
@@ -79,15 +80,16 @@ ownerEmailInput.value ="";
 
 function deletePet(petID){
     let removeIndex;
-    console.log("deleteing pet " + id);
+   
+   
     for(let i=0; i<petSalon.pets.length; i++){
         let pet = petSalon.pets[i];
         if(pet.id == petID){
             removeIndex = i;
         }
     }
-    petSalon.pets.splice(removeIndex, 1);
-    document.getElementById(id).remove();
+    petSalon.pets.splice(removeIndex,1);
+    document.getElementById(petID).remove();
 }
 
 function search(){
@@ -108,6 +110,7 @@ function init(){
    
 
     displayPetTables(); 
+
     
 
 }

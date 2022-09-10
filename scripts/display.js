@@ -4,13 +4,13 @@ function displayPetTables(){
     //travel the array
     petTable.innerHTML=``;
 
-    for(let i=0;i<petSalon.pets.length;i++){
+    for(let i = 0; i<petSalon.pets.length; i++){
 //get the pet 
         let pet=petSalon.pets[i];
       
         //create the tr
         let tr =`
-            <tr>
+            <tr id="${pet.id}">
                 <td>${pet.name}</td>
                 <td>${pet.age}</td>
                 <td>${pet.gender}</td>
@@ -18,8 +18,7 @@ function displayPetTables(){
                 <td>${pet.ownerName}</td>
                 <td>${pet.ownerPhone}</td>
                 <td>${pet.ownerEmail}</td>
-                <td><button onclick="deletePet(${pet.id})">🗑️
-                </button></td>
+                <td> <button onclick="deletePet(${pet.id})">🗑️</button></td>
             </tr>
         `;
         
